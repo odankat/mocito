@@ -14,10 +14,10 @@ import java.util.Map;
 public class EmployeeImpl implements Iemployee {
     private final Map<String, Employee> employees = new HashMap<>();
 
-    final int maxEmployee = 13;
+    private final int maxEmployee = 13;
 
     @Override
-    public String addEmployee(String fullName, int department, int salary) {
+    public Employee addEmployee(String fullName, int department, int salary) {
         Employee employee = new Employee(fullName, department, salary);
         if (employees.size() >= maxEmployee) {
             throw new EmployeeStorageIsFullException("свободных мест нет");
@@ -25,16 +25,16 @@ public class EmployeeImpl implements Iemployee {
             throw new EmployeeAlreadyAddedException("такой сотрудник есть");
         }
         employees.put(fullName, employee);
-        return employee.toString();
+        return employee;
     }
 
     @Override
-    public String removeEmployee(String fullName) {
+    public Employee removeEmployee(String fullName) {
         if (!employees.containsKey(fullName)) {
             throw new EmployeeNotFoundException("сотрудника нету");
         } else {
             employees.remove(fullName);
-            return fullName + " сотрудник удален";
+            return employees.get(fullName);
         }
     }
 

@@ -21,7 +21,7 @@ public class DepartmentImpl implements Idepartment {
     }
 
     @Override
-    public ArrayList<Employee> employees(int id) {
+    public List<Employee> employees(int id) {
         return iemployee.findAll().stream().filter(employee -> employee.getDepartment() == id)
                 .collect(Collectors.toCollection(ArrayList::new));
     }

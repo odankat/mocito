@@ -11,7 +11,7 @@ public interface Idepartment {
 
     Map<Integer, List<Employee>> depaertments();
 
-    ArrayList<Employee> employees(int department);
+    List<Employee> employees(int department);
 
     int allSalaryDepartment(int id);
 

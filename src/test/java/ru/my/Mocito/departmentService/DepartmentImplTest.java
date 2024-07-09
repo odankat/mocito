@@ -51,7 +51,6 @@ class DepartmentImplTest {
     void correctDepaertments() {
         Mockito.when(employeeImpl.findAll()).thenReturn(employees.values());
         int id = 1;
-        Mockito.when(employeeImpl.findAll()).thenReturn(employees.values());
         List<Employee> expected = List.of(employeeList.get(0), employeeList.get(1), employeeList.get(2));
         List<Employee> actual = departmentImpl.employees(id);
         Assertions.assertThat(actual).containsExactlyInAnyOrderElementsOf(expected);
@@ -89,7 +88,6 @@ class DepartmentImplTest {
 
     @Test
     void correctMinSalaryDepartment() {
-        Mockito.when(employeeImpl.findAll()).thenReturn(employees.values());
         int id = 1;
         Mockito.when(employeeImpl.findAll()).thenReturn(employees.values());
         int expected = employeeList.get(0).getSalary() ;

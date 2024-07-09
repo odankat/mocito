@@ -5,9 +5,9 @@ import ru.my.Mocito.Employee;
 import java.util.Collection;
 
 public interface Iemployee {
-    String addEmployee(String fullname, int department, int salary);
+    Employee addEmployee(String fullname, int department, int salary);
 
-    String removeEmployee(String fullname);
+    Employee removeEmployee(String fullname);
 
     Collection<Employee> findAll();
 

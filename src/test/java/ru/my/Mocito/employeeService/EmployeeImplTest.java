@@ -12,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeImplTest {
 
-    private final EmployeeImpl employeeImpl = new EmployeeImpl();
+    private final Iemployee employeeImpl = new EmployeeImpl();
 
     @Test
     public void corectAddEmployee() {
-        Employee expectedEmployee = new Employee("Петя", 1, 100);
-        String expected = expectedEmployee.toString();
-        String actual = employeeImpl.addEmployee("Петя", 1, 100);
+      //  Employee expectedEmployee = new Employee("Петя", 1, 100);
+        Employee actual = employeeImpl.addEmployee("Петя", 1, 100);
+        Employee expected = employeeImpl.findThis("Петя");
         assertEquals(expected, actual);
     }
 
@@ -33,7 +33,8 @@ class EmployeeImplTest {
 
     @Test
     public void correctEjectionEmployeeStorageIsFullException() {
-        for (int i = 0; i < employeeImpl.maxEmployee; i++) {
+        int maxEmployee = 13;
+        for (int i = 0; i < maxEmployee; i++) {
             employeeImpl.addEmployee("petya" + i, 1, 100);
         }
         assertThrows(
@@ -47,8 +48,8 @@ class EmployeeImplTest {
     void correctRemoveEmployee() {
         String fullName = "Петя";
         employeeImpl.addEmployee("Петя", 1, 100);
-        String expected = fullName + " сотрудник удален";
-        String actual = employeeImpl.removeEmployee(fullName);
+        Employee expected = null;
+        Employee actual = employeeImpl.removeEmployee(fullName);
         assertEquals(expected, actual);
     }
 

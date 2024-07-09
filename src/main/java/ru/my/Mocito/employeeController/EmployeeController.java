@@ -5,26 +5,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.my.Mocito.Employee;
-import ru.my.Mocito.employeeService.EmployeeImpl;
+import ru.my.Mocito.employeeService.Iemployee;
 
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-    private final EmployeeImpl employeeImpl;
+    private final Iemployee employeeImpl;
 
-    public EmployeeController(EmployeeImpl employeeImpl) {
+    public EmployeeController(Iemployee employeeImpl) {
         this.employeeImpl = employeeImpl;
     }
 
     @GetMapping("/add")
-    public String addEmployee(@RequestParam("fullName") String fullName,
+    public Employee addEmployee(@RequestParam("fullName") String fullName,
                               @RequestParam("department") int department, @RequestParam("salary") int salary) {
         return employeeImpl.addEmployee(fullName, department, salary);
     }
 
     @GetMapping("/remove")
-    public String removeEmployee(@RequestParam("fullName") String fullName) {
+    public Employee removeEmployee(@RequestParam("fullName") String fullName) {
         return employeeImpl.removeEmployee(fullName);
     }
 

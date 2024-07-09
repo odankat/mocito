@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.my.Mocito.Employee;
-import ru.my.Mocito.departmentService.DepartmentImpl;
+import ru.my.Mocito.departmentService.Idepartment;
 
 import java.util.List;
 import java.util.Map;
@@ -13,9 +13,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
-    private final DepartmentImpl departmentimpl;
+    private final Idepartment departmentimpl;
 
-    public DepartmentController(DepartmentImpl departmentimpl) {
+    public DepartmentController(Idepartment departmentimpl) {
         this.departmentimpl = departmentimpl;
     }
 
